@@ -152,7 +152,7 @@ If you find our code or methodology useful, please cite our work:
 ```bibtex
 @article{Wang2026GTMamba,
   title={GT-Mamba: A Topology-Aware Graph-State Space Model for Robust and Interpretable Epigenetic Age Prediction},
-  author={Wang, Han and Wang, Hui and Tong, Yanting and Liu, Yuanyuan and Jing, Qu and Zhang, Li},
+  author={Wang, Han and Wang, Hui and Tong, Yanting and Liu, Yuanyuan and Jing, Qu and Lin, Guan Ning and Zhang, Li},
   journal={Under Review},
   year={2026}
 }
