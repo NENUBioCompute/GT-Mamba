@@ -61,12 +61,34 @@ pip install -r requirements.txt
 
 ---
 
-## 📂 Data Preparation (Crucial for Benchmarking)
+## 📁 Data Preparation
 
-Due to GitHub's file size limitations, the massive raw arrays for the 5 independent GEO validation cohorts (e.g., the 850K EPIC array for GSE132203) are **not included** in this repository. 
+This repository includes core mapping files, but due to file size limits, large reference datasets and genomic coordinates are **not included**. Please download and place the missing files in the correct directories before running the pipeline.
 
-* To run the full benchmark (`run_benchmark.py`), please download the corresponding datasets directly from the **NCBI GEO database** (Accession numbers: GSE40279, GSE61496, GSE72777, GSE77445, GSE132203).
-* Once downloaded, place the `.csv` and `.csv.gz` files directly into the `data/` directory.
+### 1. Included Files (Pre-installed)
+The following mapping files are already provided in the `data/` directory:
+* `204aps.csv`
+* `20aps.csv`
+
+### 2. External Downloads Required (Place in `data/references/`)
+Please download these 3 files and move them to the `data/references/` folder:
+
+* **`450k_annotation.csv`**: Illumina Official Annotation. [Download Link]
+* **`ncbiRefSeq_hg19.csv`**: Genomic Coordinates. [Download Link]
+* **`FlowSorted.Blood.450k.csv`**: Blood cell proportion reference. [Download Link]
+
+### 3. Final Directory Structure
+After downloading, your `data` folder must look like this:
+
+```text
+GT-Mamba/
+└── data/
+    ├── 204aps.csv          (Already in Repo)
+    ├── 20aps.csv           (Already in Repo)
+    └── references/
+        ├── 450k_annotation.csv      (Download Required)
+        ├── FlowSorted.Blood.450k.csv (Download Required)
+        └── ncbiRefSeq_hg19.csv       (Download Required)
 
 ---
 
