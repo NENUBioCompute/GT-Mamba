@@ -73,9 +73,9 @@ The following mapping files are already provided in the `data/` directory:
 ### 2. External Downloads Required (Place in `data/references/`)
 Please download these 3 files and move them to the `data/references/` folder:
 
-* **`450k_annotation.csv`**: Illumina Official Annotation. [Download Link]
-* **`ncbiRefSeq_hg19.csv`**: Genomic Coordinates. [Download Link]
-* **`FlowSorted.Blood.450k.csv`**: Blood cell proportion reference. [Download Link]
+* **`450k_annotation.csv`**: Illumina Official Annotation.
+* **`ncbiRefSeq_hg19.csv`**: Genomic Coordinates.
+* **`FlowSorted.Blood.450k.csv`**: Blood cell proportion reference.
 
 ### 3. Final Directory Structure
 After downloading, your `data` folder must look like this:
@@ -89,9 +89,9 @@ GT-Mamba/
         ├── 450k_annotation.csv      (Download Required)
         ├── FlowSorted.Blood.450k.csv (Download Required)
         └── ncbiRefSeq_hg19.csv       (Download Required)
-
----
 ```
+---
+
 ## 🚀 Usage
 
 ### ⚡ Quick Start (Recommended for Reviewers)
