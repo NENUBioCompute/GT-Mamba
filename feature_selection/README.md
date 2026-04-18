@@ -46,11 +46,8 @@ Through our benchmarking, 198 sites provided the **optimal Pareto front** across
 
 ## 🚀 Execution Guide
 
-### Data Requirements
-Ensure the `data/` directory contains the following reference files:
-* `450k_annotation.csv` (Illumina Official Annotation)
-* `ncbiRefSeq_hg19.csv` (Genomic Coordinates)
-* `204aps.csv` / `20aps.csv` (Protein-gene mapping files)
+### Prerequisites
+Before running the workflow, please ensure you have completed all steps in the **Data Preparation** section above, and your `data/` directory contains all necessary reference files and GEO matrices.
 
 ### Running the Workflow
 Execute the scripts in numerical order to replicate the full selection process:
