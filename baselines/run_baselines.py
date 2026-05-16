@@ -34,7 +34,6 @@ if __name__ == "__main__":
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
     # 2. Configure relative paths (assuming the user places downloaded raw data in data/raw/)
-    # HIGHLY RECOMMENDED: Mention in the README that running this script requires downloading full GEO datasets into data/raw/
     DATA_DIR = os.path.join(BASE_DIR, "data", "raw")
     DATA_850K_DIR = os.path.join(DATA_DIR, "850K")
     SAVE_DIR = os.path.join(BASE_DIR, "results", "baselines")
@@ -99,6 +98,13 @@ if __name__ == "__main__":
             beta_sub = beta.loc[common]
             y_true = pheno.loc[common, 'Age'].values
 
+            # --- 🌟 Standardized Imputation Strategy (Reviewer 2 Alignment) 🌟 ---
+            logger.info("🩹 Applying standardized cohort-level mean imputation and zero-padding...")
+            # Step 1: Cohort-level mean imputation for columns with partial missingness
+            beta_sub = beta_sub.fillna(beta_sub.mean())
+            # Step 2: Zero-padding for columns/probes that are entirely NaN (absent from the platform)
+            beta_sub = beta_sub.fillna(0.0)
+
             clean_cpgs = [str(c).strip().replace('"', '').replace("'", "") for c in beta_sub.columns]
 
             adata = ad.AnnData(
@@ -140,11 +146,11 @@ if __name__ == "__main__":
                         metrics_row[f'{clock}_R'] = r_val
                         metrics_row[f'{clock}_R2'] = r2_val
 
-                        logger.info(f"   ∟ {clock:<12} | RAW={mae_raw:.2f} | CALIB={mae_calib:.2f}")
+                        logger.info(f"    ∟ {clock:<12} | RAW={mae_raw:.2f} | CALIB={mae_calib:.2f}")
                     else:
-                        logger.warning(f"   ∟ {clock} has insufficient valid data (Too many NaNs)")
+                        logger.warning(f"    ∟ {clock} has insufficient valid data (Too many NaNs)")
                 else:
-                    logger.warning(f"   ∟ {clock} model did not output results")
+                    logger.warning(f"    ∟ {clock} model did not output results")
 
             results.append(metrics_row)
             logger.info(f"✅ {gse} evaluation complete (Time: {time.time() - start_time:.1f}s)")
